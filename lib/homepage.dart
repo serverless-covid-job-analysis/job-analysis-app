@@ -87,14 +87,17 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.red,
         title: Text("Outward Traffic from States"),
       ),
-      /*body: Center(
-        child: TrainJourneyChart(
-      data: data,
-    )),*/
         body: Container(
             child: FutureBuilder(
                 future: fetchAlbum(),
                 builder: (BuildContext context, AsyncSnapshot snapshot){
+                    if (snapshot.data == null) {
+                      return Container(
+                        child: Center(
+                          child: Text("Loading...")
+                        )
+                      );
+                    }
                     return TrainJourneyChart(
                         data: snapshot.data,
                     );
