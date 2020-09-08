@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
-      throw Exception('Failed to load album');
+      throw Exception('Failed to load data');
     }
   }
 
@@ -89,7 +89,22 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text("Outward Traffic from States"),
+        title: Text("Outward Traffic from Cities"),
+      ),
+      drawer: new Drawer(
+        child: ListView(
+          children: <Widget>[
+            new ListTile(
+              title: new Text('Home'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new HomePage()));
+              },
+            ),
+          ],
+        ),
       ),
       body: Container(
         child: FutureBuilder(
