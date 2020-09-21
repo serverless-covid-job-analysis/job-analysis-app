@@ -6,7 +6,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class HomePage extends StatelessWidget {
+class BarChart extends StatelessWidget {
   Future<List<TrainJourneySeries>> fetchAlbum() async {
     final response =
         await http.get('https://api.jsonbin.io/b/5f6880407243cd7e8240921b/3');
@@ -100,7 +100,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (BuildContext context) => new HomePage()));
+                        builder: (BuildContext context) => new BarChart()));
               },
             ),
           ],

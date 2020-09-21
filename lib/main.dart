@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xffff6101),
       ),
-      home: HomePage(),
+      home: BarChart(),
     );
   }
 }
