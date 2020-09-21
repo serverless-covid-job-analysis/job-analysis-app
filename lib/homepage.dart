@@ -44,7 +44,7 @@ class BarChart extends StatelessWidget {
     fetchAlbum();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.green,
         title: Text("Covid Migration Analysis "),
       ),
       drawer: new Drawer(
