@@ -1,21 +1,22 @@
-import 'package:charts_flutter/flutter.dart' as charts;
-import 'train_journey_series.dart';
+import 'package:demo/train_incoming_series.dart';
 import 'package:flutter/material.dart';
+import 'train_incoming_series.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
-class TrainJourneyChart extends StatelessWidget {
-  final List<TrainJourneySeries> data;
+class IncomingChart extends StatelessWidget {
+  final List<TrainIncomingSeries> data;
 
-  TrainJourneyChart({@required this.data});
-
+  IncomingChart({@required this.data});
+  @override
   @override
   Widget build(BuildContext context) {
-    List<charts.Series<TrainJourneySeries, String>> series = [
+    List<charts.Series<TrainIncomingSeries, String>> series = [
       charts.Series(
           id: "Subscribers",
           data: data,
-          domainFn: (TrainJourneySeries series, _) => series.year,
-          measureFn: (TrainJourneySeries series, _) => series.subscribers,
-          colorFn: (TrainJourneySeries series, _) => series.barColor)
+          domainFn: (TrainIncomingSeries series, _) => series.city,
+          measureFn: (TrainIncomingSeries series, _) => series.number,
+          colorFn: (TrainIncomingSeries series, _) => series.barcolor)
     ];
 
     return Container(
@@ -27,7 +28,7 @@ class TrainJourneyChart extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                "Outward Traffic from Cities",
+                "Incoming Traffic from Cities",
                 style: Theme.of(context).textTheme.body2,
               ),
               Expanded(
