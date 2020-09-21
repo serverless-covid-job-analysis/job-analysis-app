@@ -87,6 +87,20 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.red,
         title: Text("Outward Traffic from States"),
       ),
+        drawer: new Drawer(
+          child: ListView(
+            children: <Widget>[
+              new ListTile(
+                title: new Text('Home'),
+                onTap: (){
+                  Navigator.push(context, new MaterialPageRoute(
+                    builder: (BuildContext context) => new HomePage())
+                    );
+                },
+              ),
+            ],
+          ),
+        ),
         body: Container(
             child: FutureBuilder(
                 future: fetchAlbum(),
