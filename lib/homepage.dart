@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'train_journey_chart.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'train_journey_series.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'barchart_incoming.dart';
 
 class BarChart extends StatelessWidget {
   Future<List<TrainJourneySeries>> fetchAlbum() async {
@@ -15,53 +18,6 @@ class BarChart extends StatelessWidget {
       // then parse the JSON.
       var temp = json.decode(response.body);
       print(temp);
-      /*var temp = [
-        {
-          "index": 0,
-          "source_state": "MAH",
-          "source_city": "Mumbai",
-          "destination_state": "Bihar",
-          "destination_city": "Bhagalpur",
-          "number_of_trains": 15,
-          "number_of_passengers": 176859
-        },
-        {
-          "index": 1,
-          "source_state": "UP",
-          "source_city": "Gopalpur",
-          "destination_state": "Bihar",
-          "destination_city": "Bhagalpur",
-          "number_of_trains": 15,
-          "number_of_passengers": 136852
-        },
-        {
-          "index": 2,
-          "source_state": "MP",
-          "source_city": "Indore",
-          "destination_state": "Bihar",
-          "destination_city": "Bhagalpur",
-          "number_of_trains": 15,
-          "number_of_passengers": 116857
-        },
-        {
-          "index": 3,
-          "source_state": "WB",
-          "source_city": "Gopalpur",
-          "destination_state": "Bihar",
-          "destination_city": "Bhagalpur",
-          "number_of_trains": 15,
-          "number_of_passengers": 156857
-        },
-        {
-          "index": 4,
-          "source_state": "KL",
-          "source_city": "Gopalpur",
-          "destination_state": "Bihar",
-          "destination_city": "Bhagalpur",
-          "number_of_trains": 15,
-          "number_of_passengers": 186851
-        }
-      ];*/
 
       print(temp.length);
       List<TrainJourneySeries> data = [];
@@ -95,7 +51,7 @@ class BarChart extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             new ListTile(
-              title: new Text('Home'),
+              title: new Text('Outward Traffic Chart'),
               onTap: () {
                 Navigator.push(
                     context,
@@ -103,6 +59,14 @@ class BarChart extends StatelessWidget {
                         builder: (BuildContext context) => new BarChart()));
               },
             ),
+            new ListTile(
+              title: new Text("Incoming Traffic Chart"),
+              onTap: () {},
+            ),
+            new ListTile(
+              title: new Text("Domain Wise Analysis"),
+              onTap: () {},
+            )
           ],
         ),
       ),
