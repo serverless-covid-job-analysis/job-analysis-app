@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'barchart_incoming.dart';
 
 class BarChart extends StatelessWidget {
   Future<List<TrainJourneySeries>> fetchAlbum() async {
